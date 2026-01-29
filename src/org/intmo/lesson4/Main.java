@@ -7,8 +7,21 @@ public class Main {
     public static void main(String[] args) {
         lesson1();
         lesson2();
-        lesson3();
-        lesson4();
+
+        System.out.println("Введите по порядку 5, 10 и 15");
+        Scanner scanner = new Scanner(System.in);
+
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        int num3 = scanner.nextInt();
+        System.out.println(lesson3(num1, num2, num3));
+
+        System.out.println("Введите по порядку 5, 10 и 15");
+        int num4 = scanner.nextInt();
+        int num5 = scanner.nextInt();
+        int num6 = scanner.nextInt();
+        System.out.println(lesson4(num4, num5, num6));
+
         int[] array = {3, -3, 7, 4, 5, 4, 3};
         System.out.println("array = " + Arrays.toString(array));
         System.out.println(lesson5(array));
@@ -45,29 +58,19 @@ public class Main {
         }
     }
 
-    public static void lesson3() {
-        System.out.println("Введите по порядку 5, 10 и 15");
-        Scanner scanner = new Scanner(System.in);
-
-        int num1 = scanner.nextInt();
-        int num2 = scanner.nextInt();
-        int num3 = scanner.nextInt();
+    public static boolean lesson3(int num1, int num2, int num3) {
 
         int sum = num1 + num2;
         boolean ravno = sum == num3;
         System.out.println(num1);
         System.out.println(num2);
         System.out.println(num3);
-        System.out.println(ravno);
+
+        return ravno;
     }
 
-    public static void lesson4() {
-        System.out.println("Введите по порядку 5, 10 и 15");
-        Scanner scanner = new Scanner(System.in);
+    public static boolean lesson4(int num1, int num2, int num3) {
 
-        int num1 = scanner.nextInt();
-        int num2 = scanner.nextInt();
-        int num3 = scanner.nextInt();
         boolean ravno;
         if (num2 > num1 && num3 > num2) {
             ravno = true;
@@ -77,8 +80,7 @@ public class Main {
         System.out.println(num1);
         System.out.println(num2);
         System.out.println(num3);
-        System.out.println(ravno);
-
+        return ravno;
     }
 
     public static boolean lesson5(int[] array) {
@@ -130,14 +132,14 @@ public class Main {
     public static Integer lesson10(int[] array4) {
 
         for (int i = 0; i < array4.length; i++) {
-            boolean Unique = true;
+            boolean unique = true;
             for (int j = 0; j < array4.length; j++) {
                 if (i != j && array4[i] == array4[j]) {
-                    Unique = false;
+                    unique = false;
                     break;
                 }
             }
-            if (Unique) {
+            if (unique) {
                 return array4[i];
             }
         }
